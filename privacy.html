@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SNS Autopost 개인정보처리방침</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { --bg: #f6f7f9; --surface: #fff; --ink: #1d2129; --muted: #5d6573; --line: #e3e6eb; --accent: #2f6f5e; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #15171b; --surface: #1d2025; --ink: #e8eaed; --muted: #a0a7b3; --line: #2c3038; --accent: #7cc4ad; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Segoe UI", sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 40px 16px 64px; }
+  article { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px 24px; }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  h2 { font-size: 1.05rem; margin: 28px 0 8px; }
+  p, li { color: var(--ink); }
+  .meta { color: var(--muted); font-size: .9rem; margin: 0 0 20px; }
+  ul { padding-left: 1.2em; margin: 0; }
+  a { color: var(--accent); }
+  .en { margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .92rem; }
+  .en h2 { color: var(--ink); }
+</style>
+</head>
+<body>
+<main>
+<article>
+  <h1>SNS Autopost 개인정보처리방침</h1>
+  <p class="meta">시행일: 2026년 10월 11일</p>
+
+  <p>SNS Autopost는 운영자(Chloe)가 직접 만든 글과 영상을 <strong>운영자 본인의</strong> 쓰레드 · 인스타그램 · 유튜브 계정에 예약 시간에 올리기 위해 쓰는 개인 도구입니다. 일반 사용자를 받지 않으며, 다른 사람의 계정이나 정보에는 접근하지 않습니다.</p>
+
+  <h2>1. 이용하는 정보</h2>
+  <ul>
+    <li>연결한 계정의 기본 정보 (계정 이름 · 유튜브 채널 이름) — 올바른 계정에 연결됐는지 확인하는 데만 씁니다.</li>
+    <li>게시 권한 (예: 유튜브 동영상 업로드) — 운영자가 승인한 게시물을 올리는 데만 씁니다.</li>
+    <li>게시 결과 (게시물 링크 · 처리 상태) — 게시가 됐는지 기록하는 데만 씁니다.</li>
+  </ul>
+
+  <h2>2. 보관</h2>
+  <p>연결 토큰은 GitHub Actions의 암호화된 저장소(Secrets)에만 보관하며, 화면이나 공개 파일에는 저장하지 않습니다. 게시할 글과 결과 기록은 운영자의 GitHub 저장소에 보관합니다.</p>
+
+  <h2>3. 제3자 제공</h2>
+  <p>정보를 판매하거나 다른 사람에게 제공하지 않습니다. 게시물은 운영자가 선택한 플랫폼(Meta · Google/YouTube)에만 전송됩니다.</p>
+
+  <h2>4. 연결 해제 · 삭제</h2>
+  <p>Google 계정의 <a href="https://myaccount.google.com/permissions">서드 파티 연결 관리</a>에서 SNS Autopost 접근을 언제든 해제할 수 있습니다. 해제하면 이 도구는 해당 계정에 더 이상 접근할 수 없습니다.</p>
+
+  <h2>5. YouTube API 서비스</h2>
+  <p>이 도구는 YouTube API 서비스를 사용합니다. 이용 시 <a href="https://www.youtube.com/t/terms">YouTube 서비스 약관</a>과 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>이 함께 적용됩니다.</p>
+
+  <h2>6. 문의</h2>
+  <p>Google 동의 화면에 표시되는 지원 이메일로 문의할 수 있습니다.</p>
+
+  <div class="en" lang="en">
+    <h2>Summary (English)</h2>
+    <p>SNS Autopost is a private tool used only by its operator to publish the operator's own posts and videos to the operator's own Threads, Instagram and YouTube accounts at scheduled times. It reads only basic account information (account or channel name) to confirm the right account is connected, and uses upload permission only for posts the operator has approved. Tokens are kept in encrypted GitHub Actions secrets. No data is sold or shared with third parties. Access can be revoked at any time from <a href="https://myaccount.google.com/permissions">Google Account permissions</a>. This tool uses YouTube API Services; the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> and <a href="https://policies.google.com/privacy">Google Privacy Policy</a> apply.</p>
+  </div>
+</article>
+</main>
+</body>
+</html>
