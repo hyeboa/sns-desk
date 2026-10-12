@@ -15,6 +15,7 @@
   --lantern: #b4235a; --lantern-soft: #fbe8ef;
   --helloaji: #17795a; --helloaji-soft: #e1f3eb;
   --chloe: #3d4f86; --chloe-soft: #e7ebf6;
+  --tobichom: #6a46c9; --tobichom-soft: #efe9fb;
   --ok: #1d7a3e; --ok-soft: #e3f4e8; --warn: #95560a; --warn-soft: #fdf0d9; --bad: #b3261e; --bad-soft: #fde6e4;
   --f: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   color-scheme: light;
@@ -23,7 +24,7 @@
   :root {
     --paper: #14171b; --surface: #1c2026; --rail: #191c21; --ink: #e9ecf0; --muted: #98a1ae; --line: #2c323b; --sunk: #232830;
     --focus: #82a6ff; --btn: #e9ecf0; --btn-ink: #14171b;
-    --lantern: #f27aa6; --lantern-soft: #3a1c28; --helloaji: #5fcda1; --helloaji-soft: #163128; --chloe: #a3b3e2; --chloe-soft: #222a3f;
+    --lantern: #f27aa6; --lantern-soft: #3a1c28; --helloaji: #5fcda1; --helloaji-soft: #163128; --chloe: #a3b3e2; --chloe-soft: #222a3f; --tobichom: #b9a3f2; --tobichom-soft: #2a2242;
     --ok: #6fd18d; --ok-soft: #16301f; --warn: #f0b85a; --warn-soft: #382b12; --bad: #ff8b82; --bad-soft: #3c1b19;
     color-scheme: dark;
   }
@@ -52,6 +53,7 @@ button { cursor: pointer; }
 .acct-f[data-a="lantern"] i { background: var(--lantern); }
 .acct-f[data-a="helloaji"] i { background: var(--helloaji); }
 .acct-f[data-a="chloe"] i { background: var(--chloe); }
+.acct-f[data-a="tobichom"] i { background: var(--tobichom); }
 .acct-f[aria-pressed="true"] { background: var(--btn); color: var(--btn-ink); border-color: var(--btn); }
 .tools { display: flex; gap: 10px; align-items: center; justify-self: end; flex-wrap: wrap; }
 .ghost { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 5px 12px; font-size: .86rem; }
@@ -82,6 +84,7 @@ main { max-width: 1680px; margin: 0 auto; padding: 20px 24px 120px; }
 .post.acc-lantern { --acc: var(--lantern); --acc-soft: var(--lantern-soft); }
 .post.acc-helloaji { --acc: var(--helloaji); --acc-soft: var(--helloaji-soft); }
 .post.acc-chloe { --acc: var(--chloe); --acc-soft: var(--chloe-soft); }
+.post.acc-tobichom { --acc: var(--tobichom); --acc-soft: var(--tobichom-soft); }
 .post.is-selected { box-shadow: 0 0 0 2px var(--focus); border-color: var(--focus); border-top-color: var(--acc); }
 .post.st-approved { border-color: var(--ok); border-top-color: var(--acc); }
 .post.st-posted, .post.st-rejected { opacity: .62; }
@@ -99,6 +102,8 @@ main { max-width: 1680px; margin: 0 auto; padding: 20px 24px 120px; }
 /* 사진 */
 .media { position: relative; background: var(--sunk); }
 .media .main { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.media video.main { object-fit: contain; background: #000; }
+.p-yt { font-size: .85rem; color: var(--muted); margin: -2px 0 6px; }
 .media .strip { display: flex; gap: 6px; padding: 6px; overflow-x: auto; background: var(--sunk); }
 .media .th { position: relative; flex: none; width: 52px; height: 52px; border-radius: 6px; overflow: hidden; background: var(--line); }
 .media .th img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -220,15 +225,16 @@ const OWNER = "hyeboa";
 const POSTS_REPO = "threads-autopost";
 const MEDIA_REPO = "sns-desk";
 const MEDIA_BASE = `https://raw.githubusercontent.com/${OWNER}/${MEDIA_REPO}/main/`;
-const ACCOUNTS = { lantern: "연등앱", helloaji: "헬로아지", chloe: "개인" };
-const CHANNELS = { threads: "쓰레드", instagram: "인스타" };
+const ACCOUNTS = { lantern: "연등앱", helloaji: "헬로아지", chloe: "개인", tobichom: "토비촘" };
+const CHANNELS = { threads: "쓰레드", instagram: "인스타", youtube: "유튜브" };
 const ICON = {
   threads: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16.5 11.2c-.3-2.6-2-4-4.4-4-2.6 0-4.2 1.8-4.2 4.8 0 3.2 1.8 5 4.6 5 2.2 0 3.8-1.3 3.8-3.2 0-2.2-2.2-2.9-4.4-2.6-1.6.2-2.6 1-2.5 2.1.1 1.1 1.2 1.7 2.5 1.6 2.6-.2 3.2-2.6 3.2-5.2"/><path d="M19 8.5C17.6 5 15 3.5 12 3.5 7 3.5 4 7 4 12s3 8.5 8 8.5c3.5 0 6.4-1.8 7-5"/></svg>`,
   instagram: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>`,
+  youtube: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" fill="currentColor" stroke="none"/></svg>`,
 };
 const HOLE = /\[[^\]\n]{1,40}\]/g;
-const LIMIT = { threads: 500, instagram: 2200 };
-const MAX_IMG = { threads: 20, instagram: 10 };
+const LIMIT = { threads: 500, instagram: 2200, youtube: 5000 };
+const MAX_IMG = { threads: 20, instagram: 10, youtube: 0 };
 const kst = (d) => new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul" }).format(d);
 const TODAY = kst(new Date());
 const FROM = kst(new Date(Date.now() - 3 * 864e5));
@@ -334,7 +340,12 @@ async function uploadPhoto(post, file) {
 const editable = (p) => ["draft", "failed", "rejected"].includes(p.status);
 function issues(p) {
   const out = [];
-  if (!(p.images || []).length) out.push("사진 필요");
+  // 영상 글(토비촘 등): 영상이 있으면 사진 대신 인정. 유튜브는 영상 필수
+  if (p.channel === "youtube") {
+    if (!p.video) out.push("영상 필요");
+    const t = [...String(p.ytTitle || p.title || "")].length;
+    if (!t) out.push("유튜브 제목 없음"); else if (t > 100) out.push(`유튜브 제목 ${t - 100}자 초과`);
+  } else if (!p.video && !(p.images || []).length) out.push("사진 필요");
   const h = (p.text || "").match(HOLE) || [];
   if (h.length) out.push(`빈칸 ${h.length}곳 채우기`);
   const n = [...(p.text || "")].length;
@@ -358,6 +369,14 @@ function mediaHtml(p) {
   const imgs = p.images || [], can = editable(p), busy = state.busy[p.id];
   const src = (u) => esc(state.thumbs[u] || u);
   let html;
+  if (p.video) {
+    html = `<video class="main" src="${esc(p.video)}" controls playsinline preload="metadata" aria-label="${esc(p.title || "")} 영상"></video>`;
+    return `<div class="media" data-drop="0">${html}${busy ? `<div class="busy">${esc(busy)}</div>` : ""}</div>`;
+  }
+  if (p.channel === "youtube") {
+    // 유튜브는 사진을 못 올림 — 영상은 클로이 비서 › 콘텐츠에서 보냄
+    return `<div class="media" data-drop="0"><div class="drop"><span>영상 없음 — 클로이 비서 › 콘텐츠에서 영상을 보내 주세요</span></div></div>`;
+  }
   if (!imgs.length) {
     html = can
       ? `<button type="button" class="drop" data-act="pick"><strong>사진 올리기</strong><span>끌어놓거나 눌러서 선택</span>${p.imageHint ? `<em><span>추천: ${esc(p.imageHint)}</span></em>` : ""}</button>`
@@ -398,10 +417,12 @@ function cardHtml(p) {
     ${mediaHtml(p)}
     <div class="p-body">
       <h3 class="p-title">${esc(p.title || (p.text || "").split("\n")[0])}</h3>
+      ${p.channel === "youtube" ? `<div class="p-yt">유튜브 제목: ${esc(p.ytTitle || p.title || "")}</div>` : ""}
       ${editing
         ? `<textarea class="p-edit" data-act="text" aria-label="본문">${esc(p.text || "")}</textarea>`
         : `<div class="p-text${can ? " can-edit" : ""}" ${can ? `data-act="edit" tabindex="0" title="눌러서 전체 보기·수정"` : ""}>${textHtml(p.text || "")}</div>`}
       ${p.error && p.status === "failed" ? `<div class="p-err">실패 이유: ${esc(p.error)}</div>` : ""}
+      ${p.note && p.status === "posted" ? `<div class="p-err">${esc(p.note)}</div>` : ""}
     </div>
     <div class="p-foot">${footHtml(p)}</div>
   </article>`;
